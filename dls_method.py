@@ -1,8 +1,8 @@
-import pybullet as p 
+import pybullet as p
 import pybullet_data
 import numpy as np
 import time
-
+ 
 def numerical_ik(robot_id, end_effector_index, target_pos, joint_indices, max_iters=100, threshhold=1e-3, alpha=0.1, damping=0.1):
     for _ in range(max_iters):
         joint_states = [p.getJointState(robot_id, i)[0] for i in joint_indices]

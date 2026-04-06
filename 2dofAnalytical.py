@@ -1,10 +1,10 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import time
-
+ 
 l1 = 1
 l2 = 1
-
+ 
 def inverse_kinematics(x,y):
     cos_theta2 = ((x**2+y**2-l1**2-l2**2)/(2*l1*l2))
     
@@ -21,14 +21,14 @@ def inverse_kinematics(x,y):
         solutions.append((theta1, theta2))
     
     return solutions
-
+ 
 def forward_kinematics(theta1, theta2):
     x1 = l1*np.cos(theta1)
     y1 = l1*np.sin(theta1)
     x2 = x1 + l2*np.cos(theta1+theta2)
     y2 = y1 + l2*np.sin(theta1+theta2)
     return (0, x1, x2), (0, y1, y2)
-
+ 
 def plot_arm(x,y):
     try :
         solutions = inverse_kinematics(x,y)
